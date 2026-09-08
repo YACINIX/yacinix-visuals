@@ -280,6 +280,37 @@ const toSeconds = (mmss) => {
 
 
 /* ══════════════════════════════════════════════════
+   6bis · VIGNETTES YOUTUBE — depuis data-video-id
+   src HTML = hqdefault (existe toujours). On tente ensuite
+   maxresdefault (HD 16:9) puis oardefault (ratio natif, Shorts).
+══════════════════════════════════════════════════ */
+(function initYouTubeThumbs() {
+  const BASE = 'https://i.ytimg.com/vi';
+
+  const upgrade = (img, id, names) => {
+    if (!names.length) return;
+    const [name, ...rest] = names;
+    const probe = new Image();
+    probe.onload = () => {
+      // une vignette absente renvoie un placeholder 120×90 → on l'ignore
+      if (probe.naturalWidth > 320) img.src = probe.src;
+      else upgrade(img, id, rest);
+    };
+    probe.onerror = () => upgrade(img, id, rest);
+    probe.src = `${BASE}/${id}/${name}.jpg`;
+  };
+
+  document.querySelectorAll('.work-card').forEach((card) => {
+    const id = card.dataset.videoId;
+    const img = card.querySelector('.work-card__thumb');
+    if (!img || !id || id.startsWith('VIDEO_ID')) return;
+    img.src = `${BASE}/${id}/hqdefault.jpg`;
+    upgrade(img, id, ['maxresdefault', 'oardefault']);
+  });
+})();
+
+
+/* ══════════════════════════════════════════════════
    7 · WORK — scrub de la vignette au hover
    La miniature AVANCE de quelques frames + mini-timecode
    + fine ligne playhead. Pas de zoom.

@@ -1,0 +1,3 @@
+# Site statique, aucune étape de build : Netlify publie le dossier tel quel.
+[build]
+  publish = "."

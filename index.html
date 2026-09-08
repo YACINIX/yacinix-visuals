@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Yacinix Visuals — Monteur vidéo publicitaire freelance</title>
+  <meta name="description" content="Yacinix Visuals : montage vidéo publicitaire pour e-commerce, finance, établissements et social media. Des pubs taillées pour performer, plaire et vendre." />
+  <meta name="author" content="Yacinix Visuals" />
+  <meta name="theme-color" content="#F4EFE4" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yacinixvisuals.com/" />
+  <meta property="og:title" content="Yacinix Visuals — Monteur vidéo publicitaire freelance" />
+  <meta property="og:description" content="Des pubs taillées pour performer, pour plaire et vendre. Montage pub e-commerce, finance, établissements & social." />
+  <meta property="og:image" content="images/og-cover.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@YacinixEdits" />
+  <meta name="twitter:title" content="Yacinix Visuals — Monteur vidéo pub freelance" />
+  <meta name="twitter:description" content="Des pubs taillées pour performer, pour plaire et vendre." />
+  <meta name="twitter:image" content="images/og-cover.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
+
+  <!-- Fontes : Clash Display + General Sans (Fontshare) · JetBrains Mono (Google) -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=general-sans@400,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Grille de fond — trame technique par taches (CSS pur) -->
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <!-- Grain filmique — canvas prérendu, piloté par script.js -->
+  <canvas class="grain" id="grain" aria-hidden="true"></canvas>
+
+  <a class="skip-link" href="#work">Aller au contenu</a>
+
+  <!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__inner container">
+      <a href="#hero" class="navbar__brand">
+        <img src="images/logo.svg" alt="" class="navbar__logo" aria-hidden="true" />
+        Yacinix Visuals
+      </a>
+      <button class="navbar__burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="navbar__nav" id="navMenu" aria-label="Navigation principale">
+        <a href="#work" class="navbar__link">work</a>
+        <a href="#results" class="navbar__link">approche</a>
+        <a href="#clients" class="navbar__link">clients</a>
+        <a href="#reviews" class="navbar__link">reviews</a>
+        <a href="#contact" class="navbar__link navbar__link--cta">contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Barre de scrub / tête de lecture — suit le défilement -->
+  <div class="scrub" id="scrub" aria-hidden="true">
+    <div class="scrub__track"></div>
+    <div class="scrub__played" id="scrubPlayed"></div>
+    <div class="scrub__ticks" id="scrubTicks"></div>
+    <div class="scrub__head" id="scrubHead"></div>
+    <span class="scrub__readout" id="scrubReadout">00:00</span>
+  </div>
+
+  <main>
+
+    <!-- ════════════════════════════════ HERO ════════════════════════════════ -->
+    <section class="hero" id="hero" data-tc="00:00" data-label="hero">
+      <div class="hero__content container">
+        <span class="tc tc--hero" id="heroTc">00:00</span>
+
+        <h1 class="hero__title" id="heroTitle">
+          <span class="hero__title-lead">Des pubs taillées pour</span>
+          <span class="hero__title-hi">performer,</span>
+          <span class="hero__title-mid">pour plaire</span>
+          <span class="hero__title-hi hero__title-hi--last">et vendre<span class="cut-mark" aria-hidden="true"></span></span>
+          <span class="sr-only">.</span>
+        </h1>
+
+        <p class="hero__sub">
+          Montage vidéo publicitaire, en freelance.<br />
+          E-commerce, finance, établissements, social media.
+        </p>
+
+        <!-- Showreel YouTube — remplace VIDEO_ID par ton identifiant -->
+        <div class="hero__video">
+          <div class="hero__video-frame">
+            <iframe
+              class="hero__iframe"
+              src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1&color=white"
+              title="Showreel Yacinix Visuals — montage vidéo publicitaire"
+              loading="lazy"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--primary">Me contacter</a>
+        </div>
+
+        <!-- Stats — ajuste les valeurs. -->
+        <dl class="hero__stats">
+          <div class="stat">
+            <dd class="stat__number">150+</dd>
+            <dt class="stat__label">pubs montées</dt>
+          </div>
+          <div class="stat">
+            <dd class="stat__number">4</dd>
+            <dt class="stat__label">secteurs couverts</dt>
+          </div>
+          <div class="stat">
+            <dd class="stat__number">FR + CH</dd>
+            <dt class="stat__label">marchés couverts</dt>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- séparateur waveform -->
+    <div class="wave" data-wave aria-hidden="true"></div>
+
+    <!-- ══════════════════════════ SELECTED WORK ══════════════════════════ -->
+    <section class="section work" id="work" data-tc="01:12" data-label="selected work">
+      <div class="container">
+        <header class="section-head">
+          <span class="tc">01:12</span>
+          <h2 class="section-title">Selected work</h2>
+        </header>
+
+        <!-- Filtres — onglets soulignés -->
+        <div class="filters" id="filters" role="group" aria-label="Filtrer par catégorie">
+          <button class="filter-btn active" data-filter="all">tout</button>
+          <button class="filter-btn" data-filter="ecommerce">e-commerce</button>
+          <button class="filter-btn" data-filter="finance">finance</button>
+          <button class="filter-btn" data-filter="etablissements">établissements</button>
+          <button class="filter-btn" data-filter="social">social</button>
+          <span class="filters__underline" id="filtersUnderline" aria-hidden="true"></span>
+        </div>
+
+        <!-- Galerie — grille cassée façon ours de montage.
+             Par carte :
+             • data-category  = ecommerce | finance | etablissements | social
+             • data-video-id  = ID YouTube (ex: dQw4w9WgXcQ)
+             • data-duration  = durée affichée au hover (mm:ss)
+             • Remplace images/thumb-XX.jpg par ta vignette réelle -->
+        <div class="work__grid" id="workGrid">
+
+          <article class="work-card work-card--hero" data-category="ecommerce" data-video-id="IXyn2RUoiBU" data-duration="00:32">
+            <div class="work-card__thumb-wrap">
+              <img src="images/thumb-01.jpg" alt="Spot publicitaire e-commerce — vignette du projet 1" class="work-card__thumb" loading="lazy" />
+              <span class="work-card__playhead" aria-hidden="true"></span>
+              <span class="work-card__tc" aria-hidden="true">00:00</span>
+              <span class="work-card__cat">e-commerce</span>
+            </div>
+            <h3 class="work-card__title"><span class="work-card__idx">01</span> Titre du projet 1</h3>
+          </article>
+
+          <article class="work-card work-card--tall" data-category="social" data-video-id="f1MvhjuZynw" data-duration="00:18">
+            <div class="work-card__thumb-wrap">
+              <img src="images/thumb-02.jpg" alt="Contenu social media vertical — vignette du projet 2" class="work-card__thumb" loading="lazy" />
+              <span class="work-card__playhead" aria-hidden="true"></span>
+              <span class="work-card__tc" aria-hidden="true">00:00</span>
+              <span class="work-card__cat">social</span>
+            </div>
+            <h3 class="work-card__title"><span class="work-card__idx">02</span> Titre du projet 2</h3>
+          </article>
+
+          <article class="work-card work-card--square" data-category="finance" data-video-id="pKqnZOye9sw" data-duration="00:24">
+            <div class="work-card__thumb-wrap">
+              <img src="images/thumb-03.jpg" alt="Spot publicitaire finance — vignette du projet 3" class="work-card__thumb" loading="lazy" />
+              <span class="work-card__playhead" aria-hidden="true"></span>
+              <span class="work-card__tc" aria-hidden="true">00:00</span>
+              <span class="work-card__cat">finance</span>
+            </div>
+            <h3 class="work-card__title"><span class="work-card__idx">03</span> Titre du projet 3</h3>
+          </article>
+
+          <article class="work-card work-card--wide" data-category="etablissements" data-video-id="qMnNXy0lGKQ" data-duration="00:41">
+            <div class="work-card__thumb-wrap">
+              <img src="images/thumb-04.jpg" alt="Spot publicitaire établissement — vignette du projet 4" class="work-card__thumb" loading="lazy" />
+              <span class="work-card__playhead" aria-hidden="true"></span>
+              <span class="work-card__tc" aria-hidden="true">00:00</span>
+              <span class="work-card__cat">établissements</span>
+            </div>
+            <h3 class="work-card__title"><span class="work-card__idx">04</span> Titre du projet 4</h3>
+          </article>
+
+          <article class="work-card" data-category="ecommerce" data-video-id="fdUMRjyd-4w" data-duration="00:29">
+            <div class="work-card__thumb-wrap">
+              <img src="images/thumb-05.jpg" alt="Spot publicitaire e-commerce — vignette du projet 5" class="work-card__thumb" loading="lazy" />
+              <span class="work-card__playhead" aria-hidden="true"></span>
+              <span class="work-card__tc" aria-hidden="true">00:00</span>
+              <span class="work-card__cat">e-commerce</span>
+            </div>
+            <h3 class="work-card__title"><span class="work-card__idx">05</span> Titre du projet 5</h3>
+          </article>
+
+          <article class="work-card work-card--tall" data-category="social" data-video-id="HF03TQQaWr0" data-duration="00:15">
+            <div class="work-card__thumb-wrap">
+              <img src="images/thumb-06.jpg" alt="Contenu social media vertical — vignette du projet 6" class="work-card__thumb" loading="lazy" />
+              <span class="work-card__playhead" aria-hidden="true"></span>
+              <span class="work-card__tc" aria-hidden="true">00:00</span>
+              <span class="work-card__cat">social</span>
+            </div>
+            <h3 class="work-card__title"><span class="work-card__idx">06</span> Titre du projet 6</h3>
+          </article>
+
+        </div><!-- /.work__grid -->
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════ RESULTS ══════════════════════════════ -->
+    <section class="section section--ink results" id="results" data-tc="03:40" data-label="approche">
+      <div class="container">
+        <header class="section-head">
+          <span class="tc">03:40</span>
+          <h2 class="section-title">Approche</h2>
+          <p class="section-desc">Le montage commence avant la première coupe : comprendre l'objectif de la pub, l'audience, le placement — puis servir ce besoin, image par image.</p>
+        </header>
+
+        <div class="results__grid">
+
+          <!-- Courbe de rétention dessinée (SVG) — comment se comporte l'attention -->
+          <figure class="result-card result-card--curve" id="retentionCard">
+            <svg class="retention" viewBox="0 0 640 280" role="img"
+                 aria-label="Courbe de rétention d'audience : 100 % au départ, chute marquée dès la 3ᵉ seconde, puis décroissance douce. Les premières secondes sont déterminantes.">
+              <g class="retention__grid" aria-hidden="true">
+                <line x1="0" y1="1"   x2="640" y2="1" />
+                <line x1="0" y1="70"  x2="640" y2="70" />
+                <line x1="0" y1="140" x2="640" y2="140" />
+                <line x1="0" y1="210" x2="640" y2="210" />
+                <line x1="0" y1="279" x2="640" y2="279" />
+              </g>
+              <path class="retention__area" id="retentionArea" d="" aria-hidden="true" />
+              <path class="retention__line" id="retentionLine" d="" pathLength="1" />
+              <circle class="retention__hook" id="retentionHook" r="5" cx="0" cy="0" />
+            </svg>
+            <figcaption class="result-card__caption">
+              <span class="result-card__mark">0:03</span> — tout se joue ici. Je monte l'ouverture pour qu'on reste ; le reste du montage protège ce qui a été gagné là.
+            </figcaption>
+          </figure>
+
+          <!-- 3 notes : expérience + lecture du besoin. Personnalise le texte (années, secteurs, ta façon de bosser). -->
+          <figure class="result-card result-card--note">
+            <span class="result-card__idx">01</span>
+            <h3 class="result-card__head">Six ans sur le terrain</h3>
+            <p class="result-card__body">E-commerce, finance, établissements, social. Des objectifs qui n'ont rien à voir, une exigence commune : que la vidéo travaille pour l'annonceur.</p>
+          </figure>
+
+          <figure class="result-card result-card--note">
+            <span class="result-card__idx">02</span>
+            <h3 class="result-card__head">Le besoin avant l'effet</h3>
+            <p class="result-card__body">Je lis un brief comme un objectif, pas comme une liste de plans. Le rythme, la hiérarchie du message et les respirations en découlent.</p>
+          </figure>
+
+          <figure class="result-card result-card--note">
+            <span class="result-card__idx">03</span>
+            <h3 class="result-card__head">Pensé pour la diffusion</h3>
+            <p class="result-card__body">Une pub n'est pas un clip : accroche dans les 3 premières secondes, lisible sans le son, calibrée à la plateforme et au placement.</p>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════ CLIENTS ═══════════════════════════════ -->
+    <section class="section clients" id="clients" data-tc="05:08" data-label="clients">
+      <div class="container">
+        <header class="section-head">
+          <span class="tc">05:08</span>
+          <h2 class="section-title">Clients</h2>
+        </header>
+
+        <!-- Générique de fin : une bande, noms en encre douce, or profond au survol -->
+        <ul class="clients__reel">
+          <li class="client">
+            <a href="https://ohmygads-media.com/" target="_blank" rel="noopener noreferrer" class="client__link"
+               aria-label="OMGA — agence créative, campagnes pub e-commerce">
+              <span class="client__name">OMGA</span>
+              <span class="client__role">Agence créative · E-commerce</span>
+            </a>
+          </li>
+          <li class="client">
+            <a href="https://www.parlonsfinance.fr/" target="_blank" rel="noopener noreferrer" class="client__link"
+               aria-label="Parlons Finance — média spécialisé finance">
+              <span class="client__name">Parlons Finance</span>
+              <span class="client__role">Média · Finance</span>
+            </a>
+          </li>
+          <li class="client">
+            <a href="https://ipublicity.ch/" target="_blank" rel="noopener noreferrer" class="client__link"
+               aria-label="iPublicity — agence pub pour établissements physiques">
+              <span class="client__name">iPublicity</span>
+              <span class="client__role">Agence pub · Établissements</span>
+            </a>
+          </li>
+          <li class="client">
+            <a href="https://digistylze.ch/#site-web" target="_blank" rel="noopener noreferrer" class="client__link"
+               aria-label="Digistyle — agence de services digitaux">
+              <span class="client__name">Digistyle</span>
+              <span class="client__role">Agence · Services digitaux</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- séparateur waveform -->
+    <div class="wave" data-wave aria-hidden="true"></div>
+
+    <!-- ═══════════════════════════════ REVIEWS ═══════════════════════════════ -->
+    <section class="section reviews" id="reviews" data-tc="06:24" data-label="reviews">
+      <div class="container">
+        <header class="section-head">
+          <span class="tc">06:24</span>
+          <h2 class="section-title">Reviews</h2>
+        </header>
+
+        <!-- Carton d'intertitre — placeholder en attendant de vrais témoignages.
+             Pour en ajouter : duplique le <figure>, retire --solo du conteneur,
+             remplace la citation + l'attribution (Prénom Nom · rôle, société). -->
+        <div class="reviews__cartons reviews__cartons--solo">
+          <figure class="review-card review-card--carton">
+            <blockquote class="carton__quote">
+              « Le portfolio est en maintenance. »
+            </blockquote>
+            <figcaption class="carton__by">Témoignage 1<span class="carton__sep"></span>à venir</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════ CONTACT ═══════════════════════════════ -->
+    <section class="section section--ink contact" id="contact" data-tc="07:15" data-label="contact">
+      <div class="container">
+        <header class="section-head">
+          <span class="tc">07:15</span>
+          <h2 class="section-title">Contact</h2>
+          <p class="section-desc">Un projet ? Une idée ? Je réponds sous 24 h.</p>
+        </header>
+
+        <div class="contact__layout">
+
+          <div class="contact__socials">
+            <h3 class="contact__socials-title">Me retrouver</h3>
+
+            <a href="https://x.com/YacinixEdits" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Profil X (Twitter) de Yacinix Edits">
+              <svg class="social-link__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              <span class="social-link__platform">X</span>
+              <span class="social-link__handle">@YacinixEdits</span>
+            </a>
+
+            <a href="https://instagram.com/Yacinix_Edits" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Profil Instagram de Yacinix Edits">
+              <svg class="social-link__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+              </svg>
+              <span class="social-link__platform">Instagram</span>
+              <span class="social-link__handle">@Yacinix_Edits</span>
+            </a>
+
+            <a href="https://wa.me/213656299032" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Contacter Yacinix Visuals sur WhatsApp">
+              <svg class="social-link__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+              <span class="social-link__platform">WhatsApp</span>
+              <span class="social-link__handle">+213 656 299 032</span>
+            </a>
+          </div>
+
+          <!-- Formulaire Formspree — remplace YOUR_FORM_ID -->
+          <form
+            class="contact__form"
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST"
+            id="contactForm"
+            novalidate
+          >
+            <div class="field">
+              <label for="name" class="field__label">Nom</label>
+              <input type="text" id="name" name="name" class="field__input" placeholder="Votre nom" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="email" class="field__label">Email</label>
+              <input type="email" id="email" name="email" class="field__input" placeholder="votre@email.com" required autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="message" class="field__label">Message</label>
+              <textarea id="message" name="message" class="field__input field__input--area" placeholder="Parlez-moi de votre projet…" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--bright btn--full" id="submitBtn">
+              <span class="btn__text">Envoyer le message</span>
+              <span class="btn__loader" aria-hidden="true"></span>
+            </button>
+            <p class="form-feedback" id="formFeedback" aria-live="polite"></p>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+  <footer class="footer section--ink">
+    <div class="container footer__inner">
+      <span class="footer__tc">07:59 · fin</span>
+      <p class="footer__copy">© <span id="footerYear"></span> Yacinix Visuals — Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Modal lecteur vidéo -->
+  <div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Lecteur vidéo" hidden>
+    <div class="video-modal__backdrop" id="modalBackdrop"></div>
+    <div class="video-modal__inner">
+      <button class="video-modal__close" id="modalClose" aria-label="Fermer la vidéo">✕</button>
+      <div class="video-modal__frame-wrap">
+        <iframe
+          class="video-modal__iframe"
+          id="modalIframe"
+          src=""
+          title="Lecture de la vidéo sélectionnée"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

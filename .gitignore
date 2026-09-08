@@ -1,0 +1,25 @@
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs / IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Claude Code — réglages locaux à la machine (ne pas partager)
+.claude/settings.local.json
+
+# Dépendances / build éventuels (si ajoutés plus tard)
+node_modules/
+dist/
+
+# Netlify CLI
+.netlify/
+
+# Divers
+*.log
+.env
+.env.*

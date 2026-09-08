@@ -1,0 +1,14 @@
+# Normalise les fins de ligne : LF dans le dépôt et à la sortie
+# (le site tourne sur Linux/Netlify). Coupe les avertissements CRLF sous Windows.
+* text=auto eol=lf
+
+# Binaires : jamais de conversion de fin de ligne
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.webp binary
+*.mp4  binary
+*.woff  binary
+*.woff2 binary
